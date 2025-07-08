@@ -1,85 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-<style>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
     header {
-        background-color: aliceblue;
-        text-align: center;
-        
+      background-color: aliceblue;
+      text-align: center;
     }
 
     .op {
-        text-align: center;
-        font:bold;
-        background-color: darkorange;
-        padding: 0%;
-        height: 70px;
-    }
-
-    #sobs {
-        padding: 24px;
-        margin: 15px;
-        background-color: cadetblue;
-        height: 824px;
-        width: 1224px;
-        border-radius: 30px;
-        box-shadow: 0px 0px 0px #aaaaaa;
-        transition: all 1s;
-    }
-
-    #sobs:hover {
-        box-shadow: 10px 10px 5px #aaaaaa;
+      text-align: center;
+      font-weight: bold;
+      background-color: darkorange;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     #boga {
-        overflow:hidden;
-        background-color: #aaaaaa;
-        border-radius: 0px 0px 78px 0px;
+      overflow: hidden;
+      background-color: #aaaaaa;
+      border-radius: 0px 0px 78px 0px;
+      display: flex;
     }
 
     #boga a {
-        float: left;
-        text-align: center;
-        padding: 30px;
-        background: #aaaaaa;
-        transition: all 0,5s;
+      flex: 1;
+      text-align: center;
+      padding: 30px;
+      background: #aaaaaa;
+      transition: all 0.5s;
+      text-decoration: none;
+      color: black;
     }
 
     #boga a:hover {
-        background-color: orange;
-        color: blue;
+      background-color: orange;
+      color: blue;
     }
 
-    #bol {
-        justify-content:left;
-        gap: 20px;
-        display: flex;
-        padding: 28px;    
+    #sobs {
+      padding: 24px;
+      margin: 15px auto;
+      background-color: cadetblue;
+      height: 824px;
+      width: 1224px;
+      border-radius: 30px;
+      box-shadow: 0px 0px 0px #aaaaaa;
+      transition: all 1s;
+    }
+
+    #sobs:hover {
+      box-shadow: 10px 10px 5px #aaaaaa;
+    }
+
+    #sol, #post {
+      text-align: center;
+      background: grey;
+      padding: 12px;
+      font-family: sans-serif;
+      margin-top: 20px;
+    }
+
+    #logo-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    #logo-container img {
+      width: 400px;
+      height: 400px;
+    }
+
+    #poster-section {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
     }
 
     #bosa {
-        padding: 24px;
-        margin: 20px;
-        background-color: blueviolet;
-        height: 578px;
-        width: 332px;
-        border-radius: 30px;
-        float: left;
+      padding: 24px;
+      background-color: blueviolet;
+      height: 624px;
+      width: 388px;
+      border-radius: 30px;
+      color: white;
+      box-sizing: border-box;
     }
-    
-    #sol {
-        text-align: center;
-        background: grey;
-        padding: 12px;
-        font-family: sans-serif;
-    }
-
-    #post {
-        text-align: center;
-        background: grey;
-        padding: 6px;
-        font-family: sans-serif;
 
     footer {
       text-align: center;
@@ -88,44 +106,50 @@
       color: aliceblue;
       margin-top: 23px;
     }
-
-</style>
-<body>
-    <div class="op">
-        <h1>Karya gambar</h1>
-    </div>
-    <div id="boga">
-        <a href="#">logo</a>
-        <a href="#">poster</a>
-        <a href="">random</a>
-    </div>
-    <div id="sobs">
-        <h2>Stasiun luar angkasa</h2>
-          <img src="untitled.png" , width="1200" height="724" >
-          <p>ini adalah gambar roket yang saya buat di blender</p>
-        </div>
-    <div id="sol">
-        <h2>logo below</h2>
-    </div>
-    <div id="bol">
-        <img src="Logo fashion.jpg", width="400" height="400" >
-    <div id="bol">
-        <img src="text always .png" width="400" height="400" >
-    <div id="bol">
-        <img src="logo pribadi.png" width="400" height="400">
-    </div>
-        
-    <div id="post">
-        <h2>poster below</h2>
-    </div>
-    
-    <div id="bosa">
-        <h2>Poster ilmiah</h2>
-        <img src="Poster Pendidikan - Fahmi.png" height="500" width="322">
-    </div>
-    <footer>
-        <h2>karya gambar since 2021</h2>
-    </footer>
-</body>
+  </style>
 </head>
+<body>
+
+  <div class="op">
+    <h1>Karya gambar</h1>
+  </div>
+
+  <div id="boga">
+    <a href="#">logo</a>
+    <a href="#">poster</a>
+    <a href="#">random</a>
+  </div>
+
+  <div id="sobs">
+    <h2>Stasiun luar angkasa</h2>
+    <img src="untitled.png" width="1200" height="724">
+    <p>Ini adalah gambar roket yang saya buat di Blender.</p>
+  </div>
+
+  <div id="sol">
+    <h2>Logo works</h2>
+  </div>
+
+  <div id="logo-container">
+    <img src="Logo fashion.jpg" alt="Logo 1">
+    <img src="text always .png" alt="Logo 2">
+    <img src="logo pribadi.png" alt="Logo 3">
+  </div>
+
+  <div id="post">
+    <h2>Poster works</h2>
+  </div>
+
+  <div id="poster-section">
+    <div id="bosa">
+      <h2>Poster ilmiah</h2>
+      <img src="Poster Pendidikan - Fahmi.png" height="500" width="322">
+    </div>
+  </div>
+
+  <footer>
+    <h2>Karya gambar since 2021</h2>
+  </footer>
+
+</body>
 </html>
