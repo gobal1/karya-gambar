@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karya Gambar</title>
   <style>
     body {
       margin: 0;
       font-family: sans-serif;
-    }
-
-    header {
-      background-color: aliceblue;
-      text-align: center;
+      background-color: #f0f0f0;
     }
 
     .op {
@@ -27,12 +26,13 @@
       background-color: #aaaaaa;
       border-radius: 0px 0px 78px 0px;
       display: flex;
+      flex-wrap: wrap;
     }
 
     #boga a {
       flex: 1;
       text-align: center;
-      padding: 30px;
+      padding: 20px;
       background: #aaaaaa;
       transition: all 0.5s;
       text-decoration: none;
@@ -48,54 +48,75 @@
       padding: 24px;
       margin: 15px auto;
       background-color: cadetblue;
-      height: 824px;
-      width: 1224px;
+      max-width: 90%;
       border-radius: 30px;
       box-shadow: 0px 0px 0px #aaaaaa;
       transition: all 1s;
+      text-align: center;
     }
 
     #sobs:hover {
       box-shadow: 10px 10px 5px #aaaaaa;
     }
 
+    #sobs img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: contain;
+    }
+
     #sol, #post {
       text-align: center;
       background: grey;
       padding: 12px;
-      font-family: sans-serif;
       margin-top: 20px;
     }
 
-    #logo-container {
+    .slider-container {
+      position: relative;
+      max-width: 90%;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slider {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 20px;
+      transition: transform 0.5s ease-in-out;
+      touch-action: pan-y;
     }
 
-    #logo-container img {
-      width: 400px;
-      height: 400px;
-    }
-
-    #poster-section {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 20px;
-    }
-
-    #bosa {
-      padding: 24px;
-      background-color: blueviolet;
-      height: 624px;
-      width: 388px;
-      border-radius: 30px;
-      color: white;
+    .slide {
+      min-width: 100%;
       box-sizing: border-box;
+      text-align: center;
+    }
+
+    .slide img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 30px;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
     }
 
     footer {
@@ -121,7 +142,7 @@
 
   <div id="sobs">
     <h2>Stasiun luar angkasa</h2>
-    <img src="untitled.png" width="1200" height="724">
+    <img src="untitled.png" alt="Roket Blender">
     <p>Ini adalah gambar roket yang saya buat di Blender.</p>
   </div>
 
@@ -129,26 +150,80 @@
     <h2>Logo works</h2>
   </div>
 
-  <div id="logo-container">
-    <img src="Logo fashion.jpg" alt="Logo 1">
-    <img src="text always .png" alt="Logo 2">
-    <img src="logo pribadi.png" alt="Logo 3">
+  <div class="slider-container">
+    <div class="slider" id="logoSlider">
+      <div class="slide"><img src="Logo fashion.jpg" alt="Logo 1"></div>
+      <div class="slide"><img src="text always .png" alt="Logo 2"></div>
+      <div class="slide"><img src="logo pribadi.png" alt="Logo 3"></div>
+    </div>
+    <button class="nav-button prev" onclick="prevSlide('logoSlider')">&#10094;</button>
+    <button class="nav-button next" onclick="nextSlide('logoSlider')">&#10095;</button>
   </div>
 
   <div id="post">
     <h2>Poster works</h2>
   </div>
 
-  <div id="poster-section">
-    <div id="bosa">
-      <h2>Poster ilmiah</h2>
-      <img src="Poster Pendidikan - Fahmi.png" height="500" width="322">
+  <div class="slider-container">
+    <div class="slider" id="posterSlider">
+      <div class="slide"><img src="Poster Pendidikan - Fahmi.png" alt="Poster 1"></div>
+      <div class="slide"><img src="Poster Sains.png" alt="Poster 2"></div>
+      <div class="slide"><img src="Poster Teknologi.png" alt="Poster 3"></div>
     </div>
+    <button class="nav-button prev" onclick="prevSlide('posterSlider')">&#10094;</button>
+    <button class="nav-button next" onclick="nextSlide('posterSlider')">&#10095;</button>
   </div>
 
   <footer>
     <h2>Karya gambar since 2021</h2>
   </footer>
+
+  <script>
+    const slideIndices = {
+      logoSlider: 0,
+      posterSlider: 0
+    };
+
+    function showSlide(id, index) {
+      const slider = document.getElementById(id);
+      const totalSlides = slider.children.length;
+      if (index >= totalSlides) slideIndices[id] = 0;
+      else if (index < 0) slideIndices[id] = totalSlides - 1;
+      else slideIndices[id] = index;
+      const offset = -slideIndices[id] * 100;
+      slider.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextSlide(id) {
+      showSlide(id, slideIndices[id] + 1);
+    }
+
+    function prevSlide(id) {
+      showSlide(id, slideIndices[id] - 1);
+    }
+
+    // swipe support
+    function addSwipeSupport(sliderId) {
+      const slider = document.getElementById(sliderId);
+      let startX = 0;
+
+      slider.addEventListener("touchstart", e => {
+        startX = e.touches[0].clientX;
+      });
+
+      slider.addEventListener("touchend", e => {
+        let endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) nextSlide(sliderId);
+        if (startX - endX < -50) prevSlide(sliderId);
+      });
+    }
+
+    // Inisialisasi
+    showSlide('logoSlider', 0);
+    showSlide('posterSlider', 0);
+    addSwipeSupport('logoSlider');
+    addSwipeSupport('posterSlider');
+  </script>
 
 </body>
 </html>
