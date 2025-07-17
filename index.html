@@ -254,8 +254,8 @@
 
       slider.addEventListener("touchend", e => {
         let endX = e.changedTouches[0].clientX;
-        if (startX - endX > 50) nextSlide(sliderId);
-        if (startX - endX < -50) prevSlide(sliderId);
+        if (startX - endX > 70) nextSlide(sliderId);
+        if (startX - endX < -70) prevSlide(sliderId);
       });
     }
 
