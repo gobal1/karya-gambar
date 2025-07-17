@@ -105,7 +105,7 @@
       transform: translateY(-50%);
       background-color: rgba(0, 0, 0, 0.5);
       color: white;
-      border: none;
+      border-radius: 50%;
       font-size: 30px;
       padding: 10px;
       cursor: pointer;
@@ -254,8 +254,8 @@
 
       slider.addEventListener("touchend", e => {
         let endX = e.changedTouches[0].clientX;
-        if (startX - endX > 70) nextSlide(sliderId);
-        if (startX - endX < -70) prevSlide(sliderId);
+        if (startX - endX > 50) nextSlide(sliderId);
+        if (startX - endX < -50) prevSlide(sliderId);
       });
     }
 
