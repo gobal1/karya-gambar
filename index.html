@@ -84,15 +84,12 @@
       display: flex;
       transition: transform 0.5s ease-in-out;
       touch-action: pan-y;
-      gap: 20px;
-      padding: 0 10px;
     }
 
     .slide {
       min-width: calc(100% - 40px);
       box-sizing: border-box;
       text-align: center;
-      flex-shrink: 0;
     }
 
     .slide img {
@@ -231,7 +228,6 @@
 
     function showSlide(id, index) {
       const slider = document.getElementById(id);
-      const slideWidth = slides[0].offsetWidth + 20;
       const totalSlides = slider.children.length;
       if (index >= totalSlides) slideIndices[id] = 0;
       else if (index < 0) slideIndices[id] = totalSlides - 1;
