@@ -87,7 +87,7 @@
     }
 
     .slide {
-      min-width: 100%;
+      min-width: calc(100vw - 40px);
       box-sizing: border-box;
       text-align: center;
     }
@@ -244,7 +244,7 @@
       showSlide(id, slideIndices[id] - 1);
     }
 
-    // swipe support
+   
     function addSwipeSupport(sliderId) {
       const slider = document.getElementById(sliderId);
       let startX = 0;
@@ -260,7 +260,7 @@
       });
     }
 
-    // Inisialisasi
+  
     showSlide('gambarSlider',0)
     showSlide('logoSlider', 0);
     showSlide('posterSlider', 0);
